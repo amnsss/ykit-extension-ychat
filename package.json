@@ -1,7 +1,7 @@
 {
-    "name": "ykit-extension-yo",
-    "version": "1.0.0-beta5",
-    "description": "Ykit Yo构建插件",
+    "name": "ykit-extension-ychat",
+    "version": "1.0.0",
+    "description": "Ykit Ychat构建插件",
     "main": "index.js",
     "scripts": {
     },
