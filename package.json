@@ -1,0 +1,22 @@
+{
+    "name": "ykit-extension-yo",
+    "version": "1.0.0-beta5",
+    "description": "Ykit Yo构建插件",
+    "main": "index.js",
+    "scripts": {
+    },
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "child_process": "^1.0.2",
+        "copy-dir": "^0.3.0",
+        "fs": "0.0.1-security",
+        "inquirer": "^1.2.2",
+        "path": "^0.12.7",
+        "replacestream": "^4.0.2"
+    }
+}
