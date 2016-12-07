@@ -4,6 +4,9 @@
     "description": "Ykit Ychat构建插件",
     "main": "index.js",
     "scripts": {
+      "test": "node test.js",
+      "postinstall": "node ./builder/postinstall.js",
+      "preuninstall": "node ./builder/preuninstall.js"
     },
     "repository": {
         "type": "git",
