@@ -2,7 +2,7 @@ var execSync = require('child_process').execSync;
 var replaceStream = require('replacestream');
 var inquirer = require('inquirer');
 var copydir = require('copy-dir');
-const download = require('download-github-repo');
+const download = require('download-gitlab-repo');
 
 function fileExists(filePath) {
     try {
