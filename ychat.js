@@ -46,50 +46,49 @@ module.exports = {
         console.log();
     },
     run: function (cmd) {
-        console.log('run run run...');
-        // var _commandPath = path.join(__dirname, 'commands', cmd + '.js');
-        // if (fs.existsSync(_commandPath)) {
-        //     var command = require(_commandPath),
-        //         cmdOptions = command.options || {},
-        //         argv = optimist.argv,
-        //         options = {};
-        //
-        //     if (command) {
-        //         if (argv.help || argv.h) {
-        //             this.title();
-        //             console.log(' 命令:', cmd);
-        //             console.log(' 功能:', command.usage || '');
-        //             console.log(' 选项:');
-        //             for (var key in cmdOptions) {
-        //                 var kv = key.split(':'),
-        //                     param = '--' + kv[0],
-        //                     short = kv[1];
-        //                 if (short) {
-        //                     param += ', -' + short;
-        //                 }
-        //                 console.log('    ', fixEmpty(param, 15), '#', cmdOptions[key] || '');
-        //             }
-        //             console.log('    ', fixEmpty('--help, -h', 15), '#', '查看帮助');
-        //         } else {
-        //             for (var key in cmdOptions) {
-        //                 var kv = key.split(':'),
-        //                     param = kv[0],
-        //                     short = kv[1];
-        //
-        //                 if (argv[param]) {
-        //                     options[param] = argv[param];
-        //                 } else if (short && argv[short]) {
-        //                     options[param] = argv[short];
-        //                 }
-        //             }
-        //             options.cwd = process.cwd();
-        //             options._ = argv._;
-        //
-        //             command.process(options);
-        //         }
-        //     }
-        // } else {
-        //     console.error('没有找到 ' + cmd + ' 命令.');
-        // }
+        var _commandPath = path.join(__dirname, 'commands', cmd + '.js');
+        if (fs.existsSync(_commandPath)) {
+            var command = require(_commandPath),
+                cmdOptions = command.options || {},
+                argv = optimist.argv,
+                options = {};
+
+            if (command) {
+                if (argv.help || argv.h) {
+                    this.title();
+                    console.log(' 命令:', cmd);
+                    console.log(' 功能:', command.usage || '');
+                    console.log(' 选项:');
+                    for (var key in cmdOptions) {
+                        var kv = key.split(':'),
+                            param = '--' + kv[0],
+                            short = kv[1];
+                        if (short) {
+                            param += ', -' + short;
+                        }
+                        console.log('    ', fixEmpty(param, 15), '#', cmdOptions[key] || '');
+                    }
+                    console.log('    ', fixEmpty('--help, -h', 15), '#', '查看帮助');
+                } else {
+                    for (var key in cmdOptions) {
+                        var kv = key.split(':'),
+                            param = kv[0],
+                            short = kv[1];
+
+                        if (argv[param]) {
+                            options[param] = argv[param];
+                        } else if (short && argv[short]) {
+                            options[param] = argv[short];
+                        }
+                    }
+                    options.cwd = process.cwd();
+                    options._ = argv._;
+
+                    command.process(options);
+                }
+            }
+        } else {
+            console.error('没有找到 ' + cmd + ' 命令.');
+        }
     }
 };

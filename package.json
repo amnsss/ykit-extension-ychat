@@ -20,6 +20,7 @@
         "fs": "0.0.1-security",
         "inquirer": "^1.2.2",
         "path": "^0.12.7",
-        "replacestream": "^4.0.2"
+        "replacestream": "^4.0.2",
+        "@qnpm/download-gitlab-repo": "^1.0.0"
     }
 }
